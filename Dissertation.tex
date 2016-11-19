@@ -99,15 +99,28 @@ Major Professor: Walter W. Piegorsch
 % \input{chapter6}
 %\input{chapter7}
 %
+
+\setboolean{@twoside}{false}
 \appendix
 \renewcommand{\thetable}{A.\arabic{table}}
 \input{appendixA}
-%\renewcommand{\thetable}{B.\arabic{table}}
-%\input{appendixB}
-%
-%\input{bibliography}
-
+\includepdf[pages=-]{md.pdf}
+\renewcommand{\thetable}{B.\arabic{table}}
+\input{appendixB}
+\includepdf[pages=-]{md_supplement.pdf}
+\renewcommand{\thetable}{C.\arabic{table}}
+\input{appendixC}
 \includepdf[pages=-]{clustered_T_smmr_v10.pdf}
+\renewcommand{\thetable}{D.\arabic{table}}
+\input{appendixD}
 \includepdf[pages=-]{clustered_T_suppl_v4.pdf}
+\renewcommand{\thetable}{E.\arabic{table}}
+\input{appendixE}
+\includepdf[pages=-]{ctcs.pdf}
+\renewcommand{\thetable}{F.\arabic{table}}
+\input{appendixF}
+\includepdf[pages=-, offset=50 -75]{ctcs_supplment.pdf}
+
+\input{bibliography}
 
 \end{document}
