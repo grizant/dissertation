@@ -6,6 +6,9 @@
 %\onehalfspacing
 %\doublespacing
 
+% this package allows insertion of entire pdfs
+\usepackage[final]{pdfpages}
+
 %\linespread{1.75}
 %\addtolength{\footskip}{24 pt}  % pushes page no. down at bottom of page
 
@@ -96,12 +99,15 @@ Major Professor: Walter W. Piegorsch
 % \input{chapter6}
 %\input{chapter7}
 %
-%\appendix
-%\renewcommand{\thetable}{A.\arabic{table}}
-%\input{appendixA}
+\appendix
+\renewcommand{\thetable}{A.\arabic{table}}
+\input{appendixA}
 %\renewcommand{\thetable}{B.\arabic{table}}
 %\input{appendixB}
 %
 %\input{bibliography}
+
+\includepdf[pages=-]{clustered_T_smmr_v10.pdf}
+\includepdf[pages=-]{clustered_T_suppl_v4.pdf}
 
 \end{document}
