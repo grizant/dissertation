@@ -1,0 +1,105 @@
+%\documentclass[draft]{ua-thesis}
+\documentclass[final]{ua-thesis}
+\usepackage{multirow}
+\usepackage[section] {placeins}
+\usepackage{setspace}
+%\onehalfspacing
+%\doublespacing
+
+%\linespread{1.75}
+%\addtolength{\footskip}{24 pt}  % pushes page no. down at bottom of page
+
+%\usepackage[breaklinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{amsthm}
+%\usepackage{soul}  %for underline characters
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\bibpunct{(}{)}{;}{a}{,}{,}
+
+\newtheorem{definition}{Definition}[section] %For definition and numbered in sections
+\numberwithin{equation}{section}
+%\numberwithin{table}{subsection}
+%\numberwithin{figure}{subsection}
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% For special symbols in footnote
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
+%\setlength{\topmargin}{0in}
+%\setlength{\textheight}{8.5in}
+%\setlength{\evensidemargin}{0in}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\textwidth}{6.5in}
+
+\newcommand\solidrule[1][1cm]{\rule[0.5ex]{#1}{.4pt}}
+\newcommand\dottedrule{\mbox{%
+\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}%
+\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}\solidrule[.3mm]\hspace{.7mm}}}
+\newcommand\dashedrule{\mbox{%
+\solidrule[1mm]\hspace{1mm}\solidrule[1mm]\hspace{1mm}\solidrule[1mm]\hspace{1mm}\solidrule[1mm]\hspace{1mm}\solidrule[1mm]\hspace{1mm}}}
+\newcommand\dasheddotted{\mbox{%
+\solidrule[1mm]\hspace{.4mm}\solidrule[.2mm]\hspace{.4mm}\solidrule[1mm]\hspace{.4mm}\solidrule[.2mm]\hspace{.4mm}%
+\solidrule[1mm]\hspace{.4mm}\solidrule[.2mm]\hspace{.4mm}\solidrule[1mm]\hspace{.4mm}\solidrule[.2mm]\hspace{.4mm}%
+\solidrule[1mm]\hspace{.4mm}\solidrule[.2mm]\hspace{.4mm}}}
+
+\director{Walter W. Piegorsch \& Yves A. Lussier}
+\author{A. Grant Schissler}
+\title{Statistical and Bioinformatic Contributions to Single-Subject Transcriptome Analytics}
+\date{2016}
+    \makeindex
+
+%\ifpdf \pdfinfo{ /Author (Qijun Fang) /Title  (Hierarchical Bayesian Benchmark Dose Analysis) } \fi
+
+
+\begin{document}
+\maketitle
+
+\chapter*{Acknowledgments}
+First and foremost, thanks go to my advisor Dr. Walter Piegorsch. For what I have learned in wide areas of Statistics through him, his excellent guidance in this project as well as his constant encouragement and support throughout the years. His creative ideas and the time we spent on discussion were absolutely essential to the completion of this project.
+%
+%Thanks are due my dissertation committee members, Drs. Katherine Y. Barnes, Rabi Bhattacharya, Anton Westveld, D. Dean Billheimer and Chengcheng Hu for their precious suggestions during my research on this project. Special thanks are due Dr. Rabi Bhattacharya for giving me wonderful lectures in advanced theoretic statistics and offering me many other great helps during my doctoral study. Also, thanks are due my colleagues in the University of North Carolina at Wilmington, Drs. Susan J.~Simmons, Cuixian (Tracy) Chen and Yishi Wang for their helpful comments and suggestions during the preparation of the publications regarding to this research. I also want to thank all who have taught me mathematics and statistics through those interesting courses.
+%
+%Further thanks are due my supervisor for my internship at the Biostatistis and Data Management department (BADM) of the Ventana Medical System, Inc, Dr. James Ranger-Moore for providing me funding for my doctoral study, broadening my view of statistical applications in medical industry and allowing me to use the BADM workstation for computational intensive tasks in this project. Special thanks are due my manager Dr. Isaac Bai for teaching me to use SAS software and sharing with me his experience working in industry. I would also like to thank all my other colleagues in Ventana for it is so pleasant to work with them during the past five years.
+%
+
+Finally I would like to thank my wife Fang for her love and unconditional support.
+
+\chapter*{Dedication}
+\thispagestyle{topright}
+\begin{center}To my wife, my parents, my grandparents and my arriving baby.\end{center}
+
+%\begin{vim_bug_workaround}
+%\end{vim_bug_workaround}
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+\chapter*{Abstract}
+\noindent An important objective in statistical risk assessment is estimation of minimum exposure levels, called Benchmark Doses (BMDs) that induce a pre-specified Benchmark Response (BMR) in a target population.
+
+%Established inferential approaches for BMD analysis typically involve one-sided, frequentist confidence limits, leading in practice to what are called Benchmark Dose Lower Limits (BMDLs). Appeal to hierarchical Bayesian modeling and credible limits for building BMDLs is far less developed, however. Indeed, for the few existing forms of Bayesian BMDs, informative prior information is seldom incorporated. Here, a new method is developed by using reparameterized quantal-response models that explicitly describe the BMD as a target parameter. This potentially improves the BMD/BMDL estimation by combining elicited prior belief with the observed data in the Bayesian hierarchy. Besides this, the large variety of candidate quantal-response models available for applying these methods, however, lead to questions of model adequacy and uncertainty. Facing this issue, the Bayesian estimation technique here is further enhanced by applying Bayesian model averaging to produce point estimates and (lower) credible bounds. Implementation is facilitated via a Monte Carlo-based adaptive Metropolis (AM) algorithm to approximate the posterior distribution. Performance of the method is evaluated via a simulation study. An example from carcinogenicity testing illustrates the calculations.
+%
+
+\vspace{1pc}
+
+Major Professor: Walter W. Piegorsch
+
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+\input{chapter4}
+\input{chapter5}
+%\input{chapter6}
+%\input{chapter7}
+%
+\appendix
+\renewcommand{\thetable}{A.\arabic{table}}
+\input{appendixA}
+\renewcommand{\thetable}{B.\arabic{table}}
+\input{appendixB}
+
+\input{bibliography}
+\end{document}
