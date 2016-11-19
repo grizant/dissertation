@@ -87,27 +87,27 @@
     GRADUATE COLLEGE
   \end{center}
   As members of the Dissertation Committee, we certify that we have read
-  the dissertation prepared by Qijun Fang entitled \\
-  Hierarchical Bayesian Benchmark Dose Analysis\\
+  the dissertation prepared by A. Grant Schissler entitled \\
+  ``Statistical and Bioinformatic Contributions to Single-Subject Transcriptome Analytics''\\
   and recommend that it be accepted as fulfilling the dissertation requirement
   for the Degree of Doctor of Philosophy.
   \vspace*{0.3in} \\
   %
   %\scshape
-  \underline{\makebox[4.2in][r]{}} Date: Feb 4, 2014 \\
+  \underline{\makebox[4.2in][r]{}} Date: \today \\
   Walter W. Piegorsch
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: Feb 4, 2014 \\
-  Rabindra N. Bhattacharya
+  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  Yves A. Lussier
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: Feb 4, 2014 \\
-  D. Dean Billheimer
+  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  Ryan Gutenkunst
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: Feb 4, 2014 \\
-  Chengcheng Hu
+  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  Joseph C. Watkins
   \vspace*{0.2in} \\
   %
   Final approval and acceptance of this dissertation is contingent upon
@@ -118,7 +118,7 @@
   requirement.
   \vspace*{0.2in} \\
   %\scshape
-  \underline{\makebox[4.2in][r]{}} Date: Feb 4, 2014 \\
+  \underline{\makebox[4.2in][r]{}} Date: \today \\
   Dissertation Director: Walter W. Piegorsch \\
   %
   \vspace*{\fill}
@@ -162,7 +162,7 @@
        \scshape
        Signed:
        \underline{\makebox[0.2in][r]{}
-       Qijun Fang
+       A. Grant Schissler
        \makebox[0.2in][r]{}}
      \end{flushright}
      \vspace*{\fill}
