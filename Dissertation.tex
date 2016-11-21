@@ -17,9 +17,15 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{amsthm}
 %\usepackage{soul}  %for underline characters
-\usepackage{natbib}
-\bibliographystyle{plainnat}
-\bibpunct{(}{)}{;}{a}{,}{,}
+%\usepackage{natbib}
+%\bibliographystyle{plainnat}
+%\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage[backend=biber,style=authoryear,citestyle=authoryear,sorting=none]{biblatex}
+\bibliography{/Users/grantschissler/Dropbox/bib/default,/Users/grantschissler/Dropbox/bib/library}
+\defbibheading{refs}[refs]{%
+\chapter*{References}%
+}
+
 
 \newtheorem{definition}{Definition}[section] %For definition and numbered in sections
 \numberwithin{equation}{section}
@@ -122,8 +128,12 @@ Major Professor: Walter W. Piegorsch
 % \includepdf[pages=-, offset=0 -25]{ctcs_supplment.pdf}
 \includepdf[pages=-]{ctcs_supplment.pdf}
 
+%\clearpage
 % \input{bibliography}
-\bibliography{/Users/grantschissler/Dropbox/bib/default, /Users/grantschissler/Dropbox/bib/library}
+% \bibliography{/Users/grantschissler/Dropbox/bib/default, /Users/grantschissler/Dropbox/bib/library}
+
+\printbibliography[heading=refs]
+%\printbibliography
 
 
 \end{document}
