@@ -32,8 +32,8 @@
 \def\contentsname{Table of Contents}
 \def\bibname{References}
 \def\dedicationname{Dedication}
-\def\listfigurename{List of Figures}
-\def\listtablename{List of Tables}
+%\def\listfigurename{List of Figures}
+%\def\listtablename{List of Tables}
 \topmargin      0in
 \headheight     \baselineskip
 \headsep        0.6in
@@ -88,7 +88,7 @@
   \end{center}
   As members of the Dissertation Committee, we certify that we have read
   the dissertation prepared by A. Grant Schissler entitled \\
-  ``Statistical and Bioinformatic Contributions to Single-Subject Transcriptome Analytics''\\
+  ``Statistical and Bioinformatic Contributions to \\Single-Subject Transcriptome Analytics''\\
   and recommend that it be accepted as fulfilling the dissertation requirement
   for the Degree of Doctor of Philosophy.
   \vspace*{0.3in} \\
@@ -238,8 +238,8 @@
   \typeout{\@chapapp \space \thechapter}
   \addcontentsline{toc}{chapter}%
     {\protect\chapterline{\@chapapp\ \thechapter}#1}
-  \addtocontents{lof}{\protect\addvspace{\medskipamount}}
-  \addtocontents{lot}{\protect\addvspace{\medskipamount}}
+  %\addtocontents{lof}{\protect\addvspace{\medskipamount}}
+  %\addtocontents{lot}{\protect\addvspace{\medskipamount}}
   \begingroup
     \@notopskip
     \centering
@@ -286,8 +286,16 @@
   \@afterheading}
 \def\@tocentry#1{%
   \addcontentsline{toc}{chapter}{#1}
-  \addtocontents{lof}{\protect\addvspace{\medskipamount}}
-  \addtocontents{lof}{\protect\addvspace{\medskipamount}}}
+  %\addtocontents{lof}{\protect\addvspace{\medskipamount}}
+  %\addtocontents{lof}{\protect\addvspace{\medskipamount}}
+}
+%% remove list of tables and list of figures
+\renewcommand\listoffigures{%
+        \@starttoc{lof}%
+      }
+      \renewcommand\listoftables{%
+        \@starttoc{lot}%
+}
 \def\@specialhead#1{%
   \gdef\@continued{\normalsize\scshape#1---\slshape Continued}
   \pagestyle{continued}

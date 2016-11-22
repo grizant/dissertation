@@ -25,6 +25,13 @@
 \defbibheading{refs}[refs]{%
 \chapter*{References}%
 }
+\DeclareSourcemap{
+  \maps[datatype=bibtex, overwrite]{
+    \map{
+      \step[fieldset=url, null]
+    }
+  }
+}
 
 
 \newtheorem{definition}{Definition}[section] %For definition and numbered in sections
@@ -73,7 +80,7 @@ Third, I would like to thank the entire Lussier Group. Over the past two plus ye
 
 Briefly, thank you to Mr. Larry Kull and the University of Arizona Think Tank. Without you giving me a chance to teach and being ``your first over-the-phone hire'', I would not have been able to leave my job to return to graduate school. Your humor, kindness, and dedication to students of all backgrounds is an inspiration.
 
-Finally, I would like to thank my wife Marnell for her love and support. I hope that putting up with disrupted sleep and crazy rants were worth. You are my inspiration and the past 14+ years have been the best of my life. Thank you to my Mom, Dad, sister, brother-in-law, niece, and nephew for all their encouragement and support (as well as my extended family). Also, thank you to my beloved pets for their unconditional love and reminding me to enjoy the present moment.
+Finally, I would like to thank my wife Marnell for her love and support. I hope that putting up with disrupted sleep and my crazy rants were worth it. You remain the best thing that has ever happened to me and I hope I can make you proud as we continue our lives together. Thank you to my Mom, Dad, sister, brother-in-law, niece, and nephew for all their encouragement and support (as well as my extended family). Also, thank you to my beloved pets for their unconditional love and reminding me to enjoy the present moment.
 
 \chapter*{Dedication}
 \thispagestyle{topright}
@@ -90,7 +97,7 @@ Finally, I would like to thank my wife Marnell for her love and support. I hope 
 \chapter*{Abstract}
 \noindent This dissertation serves as a unifying document of three related articles developed during my dissertation research. The projects described involve the development of single-subject transcriptome (i.e. gene expression data) methodology for precision medicine and related applications. While working in this setting, traditional statistical approaches are largely unavailable due to prohibitive sample size and lack of independent replication. This leads one to rely on informatic devices including knowledge base integration (e.g., gene set annotations; Section \ref{sec:nof1pathways}) and external data sources (e.g., estimation of inter-gene correlation; Appendix \ref{App:C}). Common statistical themes include multivariate statistics (such as Mahalanobis distance and copulas) and computational-extensive significance testing. Briefly, the first work\footnote{Appendix \ref{App:A}: Dynamic changes of RNA-sequencing expression for precision medicine: N-of-1-\emph{pathways} Mahalanobis distance within pathways of single subjects predicts breast cancer survival} describes the development of clinically relevant single-subject metrics of gene set (pathway) differential expression, N-of-1-\emph{pathways} Mahalanobis distance (MD) scores. Next, the second article\footnote{Appendix \ref{App:C}: Testing for differentially expressed genetic pathways with single-subject N-of-1 data in the presence of inter-gene correlation} describes a method which overcomes a major shortcoming of the MD framework by accounting for inter-gene correlation. Lastly, the statistics developed in the previous works are re-purposed to analyze single-cell RNA-sequencing data derived from rare cells\footnote{Appendix \ref{App:E}: Analysis of aggregated cell-cell statistical distances within pathways unveils therapeutic-resistance mechanisms in circulating tumor cells}. Importantly, these works represent an interdisciplinary effort and I hope to show that creative solutions for pressing issues become possible at the intersection of statistics, biology, medicine, and computer science.
 
-\vspace{1pc}
+\vspace{2.5pc}
 
 \noindent Statistical Advisor: Walter W. Piegorsch\\
 Biomedical Informatic Advisor: Yves A. Lussier
