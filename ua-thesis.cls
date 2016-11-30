@@ -142,7 +142,7 @@
      of the Library.
      \bigskip
      \par
-     Brief quotations from this \MakeLowercase{\@thesis} are
+     Appendices within this \MakeLowercase{\@thesis} contain copyrighted materials. Unless forbidden by the rights retained by the publisher, brief quotations from this \MakeLowercase{\@thesis} are
      allowable without special permission, provided that accurate
      acknowledgment of source is made. Requests for permission for
      extended quotation from or reproduction of this manuscript in
@@ -152,7 +152,7 @@
        College when in his or her judgment the proposed use of
        the material is in the interests of scholarship.
        In all other instances, however,
-       permission must be obtained from the author.
+       permission must be obtained from the author and/or copyright holder.
      \else
        copyright holder.
      \fi
