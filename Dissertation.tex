@@ -17,23 +17,24 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{amsthm}
 %\usepackage{soul}  %for underline characters
-%\usepackage{natbib}
+\usepackage{natbib}
 %\bibliographystyle{plainnat}
-%\bibpunct{(}{)}{;}{a}{,}{,}
-\usepackage[backend=biber,style=authoryear,citestyle=authoryear,sorting=none]{biblatex}
+\bibliographystyle{unsrtnat}
+\bibpunct{(}{)}{;}{a}{,}{,}
+%\usepackage[backend=biber,style=authoryear,citestyle=authoryear,sorting=none]{biblatex}
 %\usepackage[backend=biber,style=apa,citestyle=apa,sorting=none]{biblatex}
-\bibliography{/Users/grantschissler/Dropbox/bib/default,/Users/grantschissler/Dropbox/bib/library}
-\defbibheading{refs}[refs]{%
-\chapter*{References}%
-}
-\DeclareSourcemap{
-  \maps[datatype=bibtex, overwrite]{
-    \map{
-      \step[fieldset=url, null]
-    }
-  }
-}
-
+%\bibliography{/Users/grantschissler/Dropbox/bib/default,/Users/grantschissler/Dropbox/bib/library}
+%\defbibheading{refs}[refs]{%
+%\chapter*{References}%
+%}
+%\DeclareSourcemap{
+%  \maps[datatype=bibtex, overwrite]{
+%    \map{
+%      \step[fieldset=url, null]
+%    }
+%  }
+%}
+%
 
 \newtheorem{definition}{Definition}[section] %For definition and numbered in sections
 \numberwithin{equation}{section}
@@ -115,7 +116,14 @@ Biomedical Informatics Advisor: Yves A. Lussier
 
 \setboolean{@twoside}{false}
 
-\printbibliography[heading=refs]
+% \printbibliography[heading=refs]
+
+% \input{bibliography}
+% \bibliography{/Users/grantschissler/Dropbox/bib/default, /Users/grantschissler/Dropbox/bib/library}
+\bibliography{Dissertation}
+
+%o\printbibliography
+
 \appendix
 \renewcommand{\thetable}{A.\arabic{table}}
 \input{appendixA}
@@ -138,10 +146,6 @@ Biomedical Informatics Advisor: Yves A. Lussier
 \includepdf[pages=-]{ctcs_supplment.pdf}
 
 %\clearpage
-% \input{bibliography}
-% \bibliography{/Users/grantschissler/Dropbox/bib/default, /Users/grantschissler/Dropbox/bib/library}
-
-%\printbibliography
 
 
 \end{document}
