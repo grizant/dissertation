@@ -2,6 +2,44 @@
 
 \indent \indent The MD formulation (Appendix \ref{App:A}; \cite{Schissler2015}) described in Chapter \ref{Chap:md} appears to hold promise. However, only half of the initial goal was achieved. The other major shortcoming of the Wilcoxon approach, besides eliminating the loss of information from ranking, is the assumption of inter-gene independence in the calculation of the P-value. Genes are known to be co-expressed, especially within a curated gene set (\cite{Tamayo2016}) and, moreover, when measurements are obtained from a single subject. Inter-observation correlation often leads to poor standard error (SE) estimates and positive correlation may drastically inflate false positive errors due to underestimation of the SE (\cite{Wu2012}). This observation leads naturally to study the impact of inter-gene correlation in the N-of-1-\emph{pathways} framework.
 
-Appendix \ref{App:C} contains a manuscript\footnote{Under review at \emph{Statistical Methods in Medical Research}} describing an improvement of the statistical component of N-of-1-\emph{pathways}. Importantly, the article introduces the first single-subject, gene set testing methodology that accounts for inter-gene correlation while yielding satisfactory false positive rates with non-trivial co-expression in the pathway. Typical practice simulates mRNA expression via independent negative binomial or Poisson modeling assumptions (\cite{Gardeux2014}). Here, I used copulas (\cite{Genest2007,Yan2007}) to create multivariate distributions that simulate more authentic pathway expression. Notably, the method presented in Appendix \ref{App:C} provides a P-value from a reference $t$ distribution for the average log fold change within pathways. There is no mention of the MD formulation in the manuscript, but it is easy to see that MD adjustment is simply a constant and the $t$ construction holds for MD pathway scores as well as the described average log fold change.
+Appendix \ref{App:C} contains a manuscript\footnote{Under review at \emph{Statistical Methods in Medical Research}} describing an improvement of the statistical component of N-of-1-\emph{pathways}. Importantly, the article introduces the first single-subject, gene set testing methodology that accounts for inter-gene correlation while yielding satisfactory false positive rates with non-trivial co-expression in the pathway. Typical practice simulates mRNA expression via independent negative binomial or Poisson modeling assumptions (\cite{Gardeux2014}). Here, I used copulas (\cite{Genest2007,Yan2007}) to create multivariate distributions that simulate more authentic pathway expression. Notably, the method presented in Appendix \ref{App:C} provides a P-value from a reference $t$ distribution for the average log fold change within pathways. There is no mention of the MD formulation in the manuscript, but it is easy to see that MD adjustment is simply a constant and the $t$ construction holds for MD pathway scores as well as the described average log fold change. For the sake of completeness, the proof of the proceeding claim is provided below. Also to avoid unnecessary notational complexity, the gene-wise distances are regarded as independent rather than the cluster-correlated formulation in Appendix \ref{App:C}.
+
+Let $\delta_{j}$ be the $j^{th}$ gene-wise Mahalanbois distance for a pathway with $n$ genes ($j = 1,2,\ldots,n$). These signed gene-level distances were previously constructed by Schissler \emph{et al.} (\cite{Schissler2015}) and are defined as
+
+\begin{equation}
+\label{eq:MD}
+\delta_{j} = \sqrt{\frac{S^{2}_{B}}{S^{2}_{C}S^{2}_{B}-(S_{BC})^{2}}}(C_{j} - B_{j}) 
+\end{equation}
+
+\noindent where $S_{B}$ and $S_{C}$ are the sample standard deviations across all log$_{2}$-transformed gene expression values within the pathway in the baseline and case samples (the $B_{j}$ and $C_{j}$ values) and $S_{BC}=S_{CB}$ is their sample covariance. Denote the adjusted and unadjusted average difference as $\bar{\delta} = \sum_j \delta_j/n$ and $\bar{d} = \sum_j (C_{j} - B_{j})/n$, respectively. Notice that the multiplier to the difference $(C_{j} - B_{j})$ in Equation \ref{eq:MD} does not depend on $j$ and, is therefore, constant for every gene. Denote this constant as
+
+\begin{equation}
+\label{eq:coef}
+\omega = \sqrt{\frac{S^{2}_{B}}{S^{2}_{C}S^{2}_{B}-(S_{BC})^{2}}}
+\end{equation}
+
+\noindent Proceeding to the construction of the test statistic $t$, consider the following pair of hypotheses:
+\begin{equation}
+  \label{eq:hypotheses}
+\begin{array}{rl}
+  H_{0}: & \mu_{0} = 0 \\
+  H_{1}: & \mu_{0} \neq 0
+\end{array}
+\end{equation}
+
+\noindent Under the assumptions detailed in Appendix \ref{App:C}, the appropriate test statistic is
+\begin{equation}
+  \label{eq:t}
+  \arraycolsep=1.1pt\def\arraystretch{1.4}
+\begin{array}{rl}
+  t = & (\bar{\delta} - \mu_{0})/ \sqrt{Var(\bar{\delta}}) \\
+  = & \bar{\delta}/ \sqrt{Var(\bar{\delta}}) \\
+  = & \omega \bar{d}/ \sqrt{\omega^{2} Var(\bar{d})} \\
+  = & \bar{d}/ \sqrt{ Var(\bar{d})} \\
+\end{array}
+\end{equation}
+
+
+\noindent Thus testing the average gene-wise Mahalanobis distance reduces to testing the unadjusted average difference under this construction.
 
 This article research was primarily conducted by myself with the guidance of Dr. WW Piegorsch. I conceived the copula approach to simulating pathways. Many proposed methods were experimented with and discounted (including dependent central limit theorems, exotic bootstrapping procedures, and regression). I eventually stumbled across the robust variance estimator for cluster-correlated data given by Williams (\cite{Williams2000}) and developed informatic approach of infusing context-specific, inter-gene correlation into the methodology. Then Dr. WW Piegorsch and I developed the clustering algorithm to induce the cluster structure within pathways. I subsequently derived the $t$ distribution under assumptions provided in Appendix \ref{App:C}. Dr. YA Lussier performed the biomedical evaluation of the results. Lastly, I wrote the first draft of the article.
