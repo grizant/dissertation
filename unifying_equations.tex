@@ -1,0 +1,64 @@
+\chapter{Unifying framework} \label{App:eqns}
+
+\indent \indent One could view a unifying theme of the three works contained in Appendices \ref{App:A} - \ref{App:F} as processes which compare the pathway-level mRNA expression derived from a single sample to one or more similarly structured samples. This Appendix provides a conceptual framework that subsumes the development of effect size and P-value for testing centrally differing pathway expression of a single-sample versus one or more samples. This is not attempt at absolute rigor, but only to provide a generalization of common ideas throughout.
+
+Consider a single baseline sample and denote its observed log-normalized expression as $B_{g}$ across the $g=1,2,\ldots,G$ total mRNAs in the transcriptome. Further, suppose there are $m$ case samples to be compared to the baseline sample. Denote the observed (log) expression in the $i^{th}$ case sample for the $g^{th}$ gene as $C_{ig}$ for $i=1,2,\ldots,m$. The core quantity of interest in differential expression is the difference
+\begin{equation*}
+\label{eq:diff}
+D_{ig}=C_{ig}-B_{ig}
+\end{equation*}
+
+A key feature of the works contained in the dissertation is the integration of external knowledgebases into the statistical procedures. Indeed, pathways differ based on the annotations provided. Denote all information from external sources as $\Xi$. Suppose a given pathway of interest, $P$, has $N$ mRNAs annotated from a knowledgebase (given by arbitrary external sources, $\Xi$. The approaches taken in Appendices \ref{App:A} - \ref{App:F} have been so-called ``self-contained'' gene set tests \cite{Goeman2007}. This terminology refers to the fact that only the $N$ genes annotated to the pathway $P$ impact the effect size and significance test procedure (the other mRNAs in the whole-transcriptome are not considered). Denote the matrix of associated $m \times N$ gene-level differences comparing a single baseline sample against $m$ case samples for the pathway $P$ as
+\begin{equation*}
+  \label{eq:Dmat}
+  \mathbf{D}_{\Xi} = \left ( \begin{array}{rcccc}
+    D_{11} & D_{21} & \ldots & D_{m1} \\
+    D_{12} & \ddots &  & \vdots \\
+    \vdots &  & \ddots &  \\
+    D_{1N} & \ldots &  & D_{mN} \\
+\end{array} \right )
+\end{equation*}.
+
+\noindent \noindent For simplicity of notation, we refer to $\mathbf{D}_{\Xi}$ as simply $\mathbf{D}$ below.
+
+A central theme in this dissertation is that the observations (here the $N$ mRNAs) are not independent. There are really two types of dependencies to keep in mind: (1) the dependence between the samples as they are often derived from the same organism and (2) the co-expression of mRNAs due to a multitude of biological factors (i.e., systems biology). To generalize the impact of this inter-observation correlation, let $\epsilon(\mathbf{D}; \Xi)$ denote some reasonable metric of these two types of dependencies (the inclusion of $\Xi$ is to remind the reader of the importance of knowledgebase information into this self-contained test).
+
+All the works contained within the appendices attempt to first summarize the central tendency of the differences contained in $\mathbf{D}$. Now, denote an arbitrary parameter that aims to meet that goal while accounting for inter-observation correlation as
+
+\begin{equation}
+\label{eq:central}
+c(\mathbf{D}, \epsilon) \tag{1}
+\end{equation}
+
+Ideally, $c(\mathbf{D}, \epsilon)$ also provides a context-relevant, interpretable effect size. In Appendix \ref{App:A}, $\hat{c}(\mathbf{D}, \epsilon)$ is the average Mahalanobis distance (MD) within $P$. Here, there is only one case sample ($m=1$) and the inter-observation adjustment accounts for the between-sample correlation structure via the MD adjustment (but not the inter-gene correlation directly). In Appendix \ref{App:C}, again $m=1$, but the $\hat{c}(\mathbf{D}, \epsilon)$ is simply the average of the observed $D_{g}$\rq s (the average log fold-change). Note that the adjustment for $\epsilon$ comes later in the clustered-$T$ testing procedure. In Appendix \ref{App:E}, $\hat{c}(\mathbf{D}, \epsilon)$ is more complex. First, the $\mathbf{D}$ matrix is transformed into a vector of average MDs, one MD for each case sample. Then the median of average MD\rq s is selected to provide $\hat{c}(\mathbf{D}, \epsilon)$, an overall measure of central differential pathway expression for the baseline sample.
+
+With an effect size in hand, the next task is to assess variation of the $\hat{c}(\mathbf{D}, \epsilon)$ statistic. The end goal is to quantify variability then construct a sensible test statistic and appropriate reference distribution. Denote a general parameter measuring variation of $\hat{c}(\mathbf{D}, \epsilon)$ as
+
+\begin{equation}
+\label{eq:var}
+\phi[\hat{c}(\mathbf{D}, \epsilon)] \tag{2}
+\end{equation}
+
+In Appendix \ref{App:A}, Equation \ref{eq:var} was estimated via a nonparametric bootstrapping procedure. This estimation was enhanced in Appendix \ref{App:C} via a cluster-correlated variance estimator by greater inclusion of the external sources contained with $\Xi$. In fact, $\epsilon$ now accounts for inter-gene correlation, not simply correlation between the paired samples. In Appendix \ref{App:E}, $\phi[c(\mathbf{D}, \epsilon)]$ was estimated in exactly the same manner as in Appendix \ref{App:A} after the median pair was selected in the estimation of $c(\mathbf{D}, \epsilon)$.
+
+Finally, a test statistic is constructed to determine the likelihood that the pathway $P$ is centrally, differentially expressed for a baseline sample compared to $m$ case samples. Specifically, the following pair of hypotheses are tested:
+\begin{equation}
+  \label{eq:hypotheses}
+\begin{array}{rl} \tag{3}
+  H_{0}: & c(\mathbf{D}, \epsilon) = 0 \\
+  H_{1}: & c(\mathbf{D}, \epsilon) \neq 0
+\end{array}
+\end{equation}
+
+\noindent \noindent Denote this test statistic under the null hypothesis in Equation \ref{eq:hypotheses} as
+\begin{equation}
+\label{eq:testStat}
+t(\hat{c}, \hat{\phi}; \Xi) \tag{4}
+\end{equation}
+
+
+
+
+
+
+
