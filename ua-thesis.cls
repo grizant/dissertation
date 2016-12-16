@@ -41,8 +41,8 @@
 \footskip       0in
 \textheight     \paperheight
 \addtolength{\textheight}{-2.7in}
-\oddsidemargin  0.5in
-\evensidemargin 0.5in
+\oddsidemargin  0.3in
+\evensidemargin 0.3in
 \marginparwidth 0in
 \marginparsep   0in
 \textwidth      \paperwidth
