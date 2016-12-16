@@ -1,14 +1,14 @@
 \chapter{Unifying framework} \label{App:eqns}
 
-\indent \indent One could view a unifying theme of the three works contained in Appendices \ref{App:A} - \ref{App:F} as processes which compare the pathway-level mRNA expression derived from a single sample to one or more similarly structured samples. This Appendix provides a conceptual framework that subsumes the seemingly disparate approaches provided in the three articles. The framework below focuses on  development of effect size and P-value for testing centrally differing pathway expression of a single-sample versus one or more samples. This is not attempt at absolute rigor, but only to provide a generalization of common ideas throughout.
+\indent \indent A unifying theme of the three works contained in Appendices \ref{App:A} - \ref{App:F} is that of processes comparing the pathway-level mRNA expression derived from a single sample to one or more similarly structured samples. This Appendix provides a conceptual framework that subsumes the seemingly disparate approaches provided in the three articles. The framework below focuses on  development of an effect size and a P-value for describing and testing differential pathway expression of a single-sample versus one or more samples. This is not attempt at absolute rigor, but only to provide a generalization of common ideas throughout.
 
 Consider a single baseline sample and denote its observed log-normalized expression as $B_{g}$ across the $g=1,2,\ldots,G$ total mRNAs in the transcriptome. Further, suppose there are $m$ case samples to be compared to the baseline sample. Denote the observed (log) expression in the $i^{th}$ case sample for the $g^{th}$ gene as $C_{ig}$ for $i=1,2,\ldots,m$. The core quantity of interest in differential expression is the difference
 \begin{equation*}
 \label{eq:diff}
-D_{ig}=C_{ig}-B_{ig}
+D_{ig}=C_{ig}-B_{g}.
 \end{equation*}
 
-A key feature of the works contained in the dissertation is the integration of external knowledgebases into the statistical procedures. Indeed, pathways differ based on the annotations provided. Denote all information from external sources as $\Xi$. Suppose a given pathway of interest, $P$, has $N$ mRNAs annotated from a knowledgebase (given by arbitrary external sources, $\Xi$). The approaches taken in Appendices \ref{App:A} - \ref{App:F} are so-called ``self-contained'' gene set tests. This terminology refers to the fact that only the $N$ genes annotated to the pathway $P$ impact the effect size calculation and significance test procedure (the other mRNAs in the whole-transcriptome are not considered). Denote the matrix of associated $N \times m$ gene-level differences comparing a single baseline sample against $m$ case samples for the pathway $P$ (and dependent on external sources $\Xi$) as
+A key feature of the works contained in this dissertation is the integration of external knowledgebases into the statistical procedures. Indeed, pathways differ based on the annotations provided. Denote all information from external sources as $\Xi$. Suppose a given pathway of interest has $N$ mRNAs annotated from a knowledgebase (given by arbitrary external sources, $\Xi$). The approaches taken in Appendices \ref{App:A} - \ref{App:F} are so-called \lq self-contained\rq~gene set tests. This terminology refers to the fact that only the $N$ genes annotated to the pathway impact the effect size calculation and significance test procedure (i.e., the other mRNAs in the transcriptome are not considered). Denote the matrix of associated $N \times m$ gene-level differences comparing a single baseline sample against $m$ case samples for the pathway as
 \begin{equation*}
   \label{eq:Dmat}
   \mathbf{D}_{\Xi} = \left ( \begin{array}{rcccc}
@@ -16,42 +16,39 @@ A key feature of the works contained in the dissertation is the integration of e
     D_{12} & \ddots &  & \vdots \\
     \vdots &  & \ddots &  \\
     D_{1N} & \ldots &  & D_{mN} \\
-\end{array} \right )
-\end{equation*}.
+\end{array} \right ) \tag{1}.
+\end{equation*}
 
 \noindent \noindent For simplicity of notation, we refer to $\mathbf{D}_{\Xi}$ as simply $\mathbf{D}$ below.
 
-A central theme in this dissertation is that the observations (here the $N$ mRNAs) are not independent units. There are really two types of dependencies to keep in mind: (1) the dependence between the samples as they are often derived from the same organism and (2) the co-expression of mRNAs due to a multitude of biological factors (i.e., systems biology). To generalize the impact of this inter-observation correlation, let $\epsilon(\mathbf{D}; \Xi)$ denote some arbitrary parameter relating to these two types of dependencies (the inclusion of $\Xi$ is to remind the reader of the importance of knowledgebase information into this self-contained test).
+A critical feature in this setting is that the observations (the $N$ mRNAs) are not independent units. In fact, there are two types of dependencies to keep in mind: (i) the dependence between the samples as they are often derived from the same organism and (ii) the co-expression of mRNAs due to a multitude of biological factors (i.e., systems biology). To generalize the impact of inter-observation correlation, let $\Psi(\mathbf{D}; \Xi)$ denote some arbitrary parameter relating to these two types of dependencies (the inclusion of $\Xi$ is to remind the reader of the importance of knowledgebase information into this self-contained test).
 
-All the works contained within the appendices attempt to first summarize the central tendency of the differences contained in $\mathbf{D}$. Now, denote an arbitrary parameter that quantifies central differential expression while accounting for inter-observation correlation as
-\begin{equation}
-\label{eq:central}
-\theta (\mathbf{D}, \epsilon) \tag{1}
-\end{equation}
+In each article (Appendices \ref{App:A} - \ref{App:F}), there is an attempt to first summarize the central tendency of the gene-level expression differences. Denote an arbitrary parameter that quantifies differential expression while accounting for inter-observation correlation as $\theta$.
 
-Ideally, $\theta (\mathbf{D}, \epsilon)$ also provides a context-relevant, interpretable effect size. In Appendix \ref{App:A}, $\hat{\theta}(\mathbf{D}, \epsilon)$ is the average Mahalanobis distance (MD) within $P$. In that construction there is only one case sample ($m=1$) and the inter-observation adjustment accounts for the between-sample correlation structure via the MD adjustment (but not the inter-gene correlation directly). In Appendix \ref{App:C}, again $m=1$, but the $\hat{\theta}(\mathbf{D}, \epsilon)$ is simply the average of the observed $D_{g}$\rq s (the average log fold-change). Note that the adjustment for $\epsilon$ comes later in the clustered-$T$ testing procedure. In Appendix \ref{App:E}, $\hat{\theta}(\mathbf{D}, \epsilon)$ is more complex. First, the $\mathbf{D}$ matrix is transformed into a vector of average MDs, one MD for each case sample. Then the median of average MD\rq s is selected to provide $\hat{\theta}(\mathbf{D}, \epsilon)$, an overall measure of central differential pathway expression between the baseline sample and $m$ case samples.
+Ideally, $\theta$ also provides a context-relevant interpretation (an effect size). In Appendix \ref{App:A}, $\theta$ is the expected value of a transformed vector of observed differences, $D_{ig}$ with $m=1$. The transformation results from the adoption of the Mahalanobis distance (MD). The expected value is estimated via averaging the adjusted $D_{ig}$\rq s. We refer to this estimator as $\hat{\theta}(\mathbf{D}, \Psi)$. In that construction, the inter-observation adjustment accounts for the between-sample correlation structure (but not the inter-gene correlation). The observed average MD distance within the pathway, $\hat{\theta}(\mathbf{D}, \Psi)$, can be interpreted as an adjusted pathway-level fold-change in gene expression and was seen to be a clinically relevant metric (refer to Appendix \ref{App:A}). In Appendix \ref{App:C}, again an effect size is constructed in the $m=1$ scenario. However, $\hat{\theta}(\mathbf{D}, \Psi)$ in this article is simply the unadjusted average of the observed $D_{ig}$\rq s and interpreted as the average log fold-change in gene expression. In Appendix \ref{App:E}, both $\theta$ and $\hat{\theta}(\mathbf{D}, \Psi)$ are more complex. $\theta$ is no longer an expected value, but an overall measure of differential pathway expression across $m$ sample pairings. First, the $\mathbf{D}$ matrix is transformed into a $m$-dimensional vector containing the corresponding average MDs, one MD for each case sample. Then the median of average MDs is selected to provide $\hat{\theta}(\mathbf{D}, \Psi)$, an estimate of the overall differential pathway expression between the baseline sample and $m$ case samples.
 
-With an effect size of central differential expression in hand, the next task is to assess variation of the $\hat{\theta}(\mathbf{D}, \epsilon)$ statistic. Denote a general parameter measuring variation of $\hat{\theta}(\mathbf{D}, \epsilon)$ as
-\begin{equation}
-\label{eq:var}
-\phi(\hat{\theta};~\mathbf{D},\epsilon,\Xi) \tag{2}
-\end{equation}
+With an effect size of differential expression in hand, the next task is to assess variation of the $\hat{\theta}(\mathbf{D}, \Psi)$ statistic. Denote a general parameter measuring variation of $\hat{\theta}(\mathbf{D}, \Psi)$ as $\phi$.
 
-In Appendix \ref{App:A}, Equation \ref{eq:var} was estimated via a nonparametric bootstrapping procedure. This estimation was enhanced in Appendix \ref{App:C} via a cluster-correlated variance estimator by greater inclusion of the external sources contained with $\Xi$. In fact, $\epsilon$ now accounts for inter-gene correlation, not simply correlation between the paired samples. In Appendix \ref{App:E}, $\phi(\hat{\theta};~\mathbf{D},\epsilon,\Xi)$ was estimated in exactly the same manner as in Appendix \ref{App:A} after the median pair was selected in the estimation of $\theta (\mathbf{D}, \epsilon)$.
+%\begin{equation}
+%\label{eq:var}
+%\phi(\hat{\theta};~\mathbf{D},\Psi). \tag{1}
+%\end{equation}
 
-Finally, a test statistic is constructed to determine the likelihood that the pathway $P$ is centrally, differentially expressed for a baseline sample compared to $m$ case samples. Specifically, the following pair of hypotheses are tested:
+$\phi$ was estimated by employing a variety of techniques within the respective articles. In Appendix \ref{App:A}, $\phi$ was estimated via a nonparametric bootstrapping procedure. This estimation was enhanced in Appendix \ref{App:C} via a cluster-correlated variance estimator by greater inclusion of the external sources contained with $\Xi$. In fact, $\Psi$ in Appendix \ref{App:C} now accounts for inter-gene correlation, not simply correlation between the paired samples. In Appendix \ref{App:E}, $\phi$ was estimated in exactly the same manner as in Appendix \ref{App:A} after the median pair was selected in the estimation of $\theta$.
+
+Next, a test statistic is constructed to with an aim to subsequently estimate the probability that the pathway is differentially expressed for a baseline sample compared to $m$ case samples. Specifically, the following pair of hypotheses are tested:
 \begin{equation}
   \label{eq:hypotheses}
-\begin{array}{rl} \tag{3}
-  H_{0}: & \theta (\mathbf{D}, \epsilon) = 0 \\
-  H_{1}: & \theta (\mathbf{D}, \epsilon) \neq 0
+\begin{array}{rl} \tag{2}
+  H_{0}: & \theta = 0. \\
+  H_{1}: & \theta \neq 0.
 \end{array}
 \end{equation}
 
-\noindent \noindent Denote this test statistic under the null hypothesis in Equation \ref{eq:hypotheses} as
+\noindent \noindent Denote this test statistic under the null hypothesis in Equation (\ref{eq:hypotheses}) as
 \begin{equation}
 \label{eq:testStat}
-t(\hat{\theta},\hat{\phi};~\Xi) \tag{4}
+t(\hat{\theta},\hat{\phi};~\mathbf{D},\Psi,\Xi). \tag{3}
 \end{equation}
 
-In Appendix \ref{App:A}, Equation \ref{eq:testStat} is not directly computed, but a P-value is obtained via nonparametric bootstrapping of $\hat{\theta}$. Within the aggregation framework (Appendix \ref{App:E}), the pair of hypotheses are again assessed as in Appendix \ref{App:A} after the selection of a central pair as described above. In Appendix \ref{App:C}, Equation \ref{eq:testStat} is the clustered-$T$ statistic given the cluster assignments derived from $\Xi$. This statistic is then compared to the appropriate $t$ reference distribution to obtain a P-value for central differential pathway expression when comparing the case sample ($m=1$) to baseline expression. 
+Finally, each work seeks to provide a P-value estimating the probability that the null hypothesis $H_{0}$ is true. In Appendix \ref{App:A}, this is accomplished via nonparametric bootstrapping of $\hat{\theta}(\mathbf{D}, \Psi)$. Within the aggregation framework (Appendix \ref{App:E}), the pair of hypotheses in (\ref{eq:hypotheses}) are assessed as in Appendix \ref{App:A} after the selection of a central pair as described above. In Appendix \ref{App:C}, Equation (\ref{eq:testStat}) is the clustered-$T$ statistic given the cluster assignments derived from $\Xi$. This statistic is then compared to an appropriate $t$ reference distribution to obtain a P-value assessing differential pathway expression when comparing the case sample ($m=1$) to baseline expression. 
