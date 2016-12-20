@@ -5,7 +5,7 @@
 Consider a single baseline sample and denote its observed log-normalized expression as $B_{g}$ across the $g=1,2,\ldots,G$ total mRNAs in the transcriptome. Further, suppose there are $m$ case samples to be compared to the baseline sample. Denote the observed (log) expression in the $i^{th}$ case sample for the $g^{th}$ gene as $C_{ig}$ for $i=1,2,\ldots,m$. The core quantity of interest in differential expression is the difference
 \begin{equation*}
 \label{eq:diff}
-D_{ig}=C_{ig}-B_{g}.
+D_{ig}=C_{ig}-B_{g}. \tag{1}
 \end{equation*}
 
 A key feature of the works contained in this dissertation is the integration of external knowledgebases into the statistical procedures. Indeed, pathways differ based on the annotations provided. Denote all information from external sources as $\Xi$. Suppose a given pathway of interest has $N$ mRNAs annotated from a knowledgebase (given by arbitrary external sources, $\Xi$). The approaches taken in Appendices \ref{App:A} - \ref{App:F} are so-called \lq self-contained\rq~gene set tests. This terminology refers to the fact that only the $N$ genes annotated to the pathway impact the effect size calculation and significance test procedure (i.e., the other mRNAs in the transcriptome are not considered). Denote the matrix of associated $N \times m$ gene-level differences comparing a single baseline sample against $m$ case samples for the pathway as
@@ -16,7 +16,7 @@ A key feature of the works contained in this dissertation is the integration of 
     D_{12} & \ddots &  & \vdots \\
     \vdots &  & \ddots &  \\
     D_{1N} & \ldots &  & D_{mN} \\
-\end{array} \right ) \tag{1}.
+\end{array} \right ) \tag{2}.
 \end{equation*}
 
 \noindent \noindent For simplicity of notation, we refer to $\mathbf{D}_{\Xi}$ as simply $\mathbf{D}$ below.
@@ -39,7 +39,7 @@ $\phi$ was estimated by employing a variety of techniques within the respective 
 Next, a test statistic is constructed to with an aim to subsequently estimate the probability that the pathway is differentially expressed for a baseline sample compared to $m$ case samples. Specifically, the following pair of hypotheses are tested:
 \begin{equation}
   \label{eq:hypotheses}
-\begin{array}{rl} \tag{2}
+\begin{array}{rl} \tag{3}
   H_{0}: & \theta = 0. \\
   H_{1}: & \theta \neq 0.
 \end{array}
@@ -48,7 +48,7 @@ Next, a test statistic is constructed to with an aim to subsequently estimate th
 \noindent \noindent Denote this test statistic under the null hypothesis in Equation (\ref{eq:hypotheses}) as
 \begin{equation}
 \label{eq:testStat}
-t(\hat{\theta},\hat{\phi};~\mathbf{D},\Psi,\Xi). \tag{3}
+t(\hat{\theta},\hat{\phi};~\mathbf{D},\Psi,\Xi). \tag{4}
 \end{equation}
 
 Finally, each work seeks to provide a P-value estimating the probability that the null hypothesis $H_{0}$ is true. In Appendix \ref{App:A}, this is accomplished via nonparametric bootstrapping of $\hat{\theta}(\mathbf{D}, \Psi)$. Within the aggregation framework (Appendix \ref{App:E}), the pair of hypotheses in (\ref{eq:hypotheses}) are assessed as in Appendix \ref{App:A} after the selection of a central pair as described above. In Appendix \ref{App:C}, Equation (\ref{eq:testStat}) is the clustered-$T$ statistic given the cluster assignments derived from $\Xi$. This statistic is then compared to an appropriate $t$ reference distribution to obtain a P-value assessing differential pathway expression when comparing the case sample ($m=1$) to baseline expression. 
