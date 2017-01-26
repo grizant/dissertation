@@ -86,27 +86,27 @@
     THE UNIVERSITY OF ARIZONA \\
     GRADUATE COLLEGE
   \end{center}
-  As members of the Dissertation Committee, we certify that we have read
-  the dissertation prepared by A. Grant Schissler entitled \\
-  ``Statistical and Bioinformatic Contributions to \\Single-Subject Transcriptome Analytics''\\
-  and recommend that it be accepted as fulfilling the dissertation requirement
-  for the Degree of Doctor of Philosophy.
+  As members of the Dissertation Committee, we certify that we have read the dissertation prepared by A. Grant Schissler entitled ``Contributions to gene set analysis of correlated, paired-sample transcriptome data to enable precision medicine'' and recommend that it be accepted as fulfilling the dissertation requirement for the Degree of Doctor of Philosophy.
   \vspace*{0.3in} \\
   %
   %\scshape
-  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  % \underline{\makebox[4.2in][r]{}} Date: \today \\
+  \underline{\makebox[4.2in][r]{}} Date: February 16, 2017 \\
   Walter W. Piegorsch
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  %\underline{\makebox[4.2in][r]{}} Date: \today \\
+    \underline{\makebox[4.2in][r]{}} Date: February 16, 2017 \\
   Yves A. Lussier
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  %\underline{\makebox[4.2in][r]{}} Date: \today \\
+    \underline{\makebox[4.2in][r]{}} Date: February 16, 2017 \\
   Ryan Gutenkunst
   \vspace*{0.2in} \\
   %
-  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  %\underline{\makebox[4.2in][r]{}} Date: \today \\
+  \underline{\makebox[4.2in][r]{}} Date: February 16, 2017 \\
   Joseph C. Watkins
   \vspace*{0.2in} \\
   %
@@ -118,7 +118,8 @@
   requirement.
   \vspace*{0.2in} \\
   %\scshape
-  \underline{\makebox[4.2in][r]{}} Date: \today \\
+  %\underline{\makebox[4.2in][r]{}} Date: \today \\
+  \underline{\makebox[4.2in][r]{}} Date: February 16, 2017 \\
   Dissertation Director: Walter W. Piegorsch \\
   %
   \vspace*{\fill}
