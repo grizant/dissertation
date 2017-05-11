@@ -86,7 +86,7 @@
     THE UNIVERSITY OF ARIZONA \\
     GRADUATE COLLEGE
   \end{center}
-  As members of the Dissertation Committee, we certify that we have read the dissertation prepared by A. Grant Schissler entitled ``Contributions to gene set analysis of correlated, paired-sample transcriptome data to enable precision medicine'' and recommend that it be accepted as fulfilling the dissertation requirement for the Degree of Doctor of Philosophy.
+  As members of the Dissertation Committee, we certify that we have read the dissertation prepared by Alfred Grant Schissler entitled ``Contributions to gene set analysis of correlated, paired-sample transcriptome data to enable precision medicine'' and recommend that it be accepted as fulfilling the dissertation requirement for the Degree of Doctor of Philosophy.
   \vspace*{0.3in} \\
   %
   %\scshape
@@ -163,7 +163,7 @@
        \scshape
        Signed:
        \underline{\makebox[0.2in][r]{}
-       A. Grant Schissler
+       Alfred Grant Schissler
        \makebox[0.2in][r]{}}
      \end{flushright}
      \vspace*{\fill}
